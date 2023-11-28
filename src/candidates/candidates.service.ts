@@ -55,7 +55,14 @@ export class CandidatesService {
     async deleteCandidate(id: number): Promise<Candidates> {
         await this.prisma.votes.deleteMany({
             where: {
-                id
+                OR: [
+                    {
+                        worstCandidate: id
+                    },
+                    {
+                        bestCandidate: id
+                    }
+                ]
             }
         })
         return await this.prisma.candidates.delete({

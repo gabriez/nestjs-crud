@@ -68,8 +68,9 @@ export class CandidatesController {
     async deleteCandidateById(@Param('id') id:string){
         try {
              await this.CandidatesService.deleteCandidate(Number(id)) 
-            return JSON.stringify({message: 'El candidato fue eliminado exitosamente'})
+            return {message: 'El candidato fue eliminado exitosamente'}
         } catch (error) {
+            console.log(error)
             throw new NotFoundException('El candidato que desea eliminar no existe')
         }
     }
