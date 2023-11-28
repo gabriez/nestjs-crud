@@ -4,7 +4,7 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin:'http://localhost:3000',
+    origin:['http://localhost:3000', 'https://nextjs-crud-pied-five.vercel.app'],
     credentials: true
     });
   await app.listen(3001);
