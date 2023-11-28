@@ -63,7 +63,7 @@ export class CountController {
                 
                     if (countWorst[j].id === testArray[i].worstcandidate.id) {
                         countWorst[j].quantity += 1;
-                    } else if (countWorst.some(item => item.id === testArray[i].worstcandidate.id)) {
+                    } else  {
                         countWorst.push(new DataBest(testArray[i].worstcandidate.id, testArray[i].worstcandidate.name, testArray[i].worstcandidate.color))
                     }
                 }
