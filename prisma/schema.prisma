@@ -1,0 +1,32 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Candidates {
+  id Int @id @default(autoincrement())
+  name String
+  color String 
+  bestcandidate Votes[] @relation("bestCandidate")
+  worstcandidate Votes[] @relation("worstCandidate")
+}
+
+model Votes {
+    id Int @id @default(autoincrement())
+    bestcandidate Candidates @relation("bestCandidate", fields: [bestCandidate], references: [id])
+    bestCandidate Int
+    bestCDescription String @db.VarChar(300)	
+    worstcandidate Candidates @relation("worstCandidate",fields: [worstCandidate], references: [id])
+    worstCandidate Int
+    worstCDescription String @db.VarChar(300)	
+    email String @unique
+    media String
+
+}
