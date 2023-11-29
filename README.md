@@ -66,13 +66,13 @@ The project was deployed con Render. You can check the API with the next [https:
 The following routes are the ones that I used on the project.
 
 # GET 
-/candidates?limit= &offset= Just to get the existing candidates
-/votes?limit= &offset= It's just to get the votes made
-/count This one is used to get the information that the pie chart uses
+- /candidates?limit= &offset= Just to get the existing candidates
+- /votes?limit= &offset= It's just to get the votes made
+- /count This one is used to get the information that the pie chart uses
 # DELETE
-/candidates/:id 
+- /candidates/:id 
 # PUT
-/candidates/:id
+- /candidates/:id
 Structure of the JSON to send
 ```bash
 {
@@ -82,7 +82,7 @@ Structure of the JSON to send
 ```
 
 # POST
-/candidates To create candidates
+- /candidates To create candidates
 
 Structure of the JSON to send
 ```bash
@@ -92,7 +92,7 @@ Structure of the JSON to send
 }
 ```
 
-/votes To delete candidates
+- /votes To delete candidates
 
 Structure of the JSON to send
 ```bash
