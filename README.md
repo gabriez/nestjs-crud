@@ -24,7 +24,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This is a backend with a simple CRUD which is connected to a frontend made on NextJS. The CRUD is focus on handling data about surveys
 
 ## Installation
 
@@ -58,16 +58,50 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+## Deployed
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+The project was deployed con Render. You can check the API with the next [https://dashboard.render.com/web/srv-clj4q51ll56s73d2ubkg/logs](link). 
 
-## Stay in touch
+## How to use it
+The following routes are the ones that I used on the project.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+# GET 
+- /candidates?limit= &offset= Just to get the existing candidates
+- /votes?limit= &offset= It's just to get the votes made
+- /count This one is used to get the information that the pie chart uses
+# DELETE
+- /candidates/:id 
+# PUT
+- /candidates/:id
+Structure of the JSON to send
+```bash
+{
+    "name": "string", 
+    "color" : "#ed0c0c"
+}
+```
 
-## License
+# POST
+- /candidates To create candidates
 
-Nest is [MIT licensed](LICENSE).
+Structure of the JSON to send
+```bash
+{
+    "name": "string", 
+    "color" : "#ed0c0c"
+}
+```
+
+- /votes To delete candidates
+
+Structure of the JSON to send
+```bash
+{
+    "bestCandidate": number,
+    "worstCandidate": number,
+    "bestCDescription": "string",
+    "worstCDescription": "string",
+    "email": "string",
+    "media": "string"
+}
+```
