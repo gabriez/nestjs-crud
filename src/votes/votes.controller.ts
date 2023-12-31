@@ -22,7 +22,7 @@ export class VotesController {
             'bestCandidate', 'bestCDescription', 'worstCandidate', 'worstCDescription', 'email','media'
         ]
         const dataInArray = Object.entries(data);
-        let regexEmail = new RegExp("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])");
+        const regexEmail = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
 
         // Validaciones realizadas a la información
         if (dataInArray.length == 0) throw new BadRequestException('El request body está vacío');
